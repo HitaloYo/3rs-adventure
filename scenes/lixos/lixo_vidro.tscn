@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://doycmcsuceqlb"]
+
+[ext_resource type="Script" uid="uid://bg6n54f787aua" path="res://scripts/trash_script/lixo_vidro.gd" id="1_vo3xh"]
+[ext_resource type="Texture2D" uid="uid://b0bc6vp17drxc" path="res://sprites/spr_eco/verde.png" id="2_jac0l"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kp6qt"]
+radius = 16.2788
+
+[node name="lixo_vidro" type="Area2D"]
+script = ExtResource("1_vo3xh")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.04, 0.04)
+texture = ExtResource("2_jac0l")
+region_enabled = true
+region_rect = Rect2(148, 0, 368, 600)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_kp6qt")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

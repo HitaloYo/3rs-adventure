@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://0ca8m7deuugg"]
+
+[ext_resource type="Script" uid="uid://c0so08gl1lkbn" path="res://scripts/troca_de_cena_script/tp_tutorial.gd" id="1_ijacw"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ijacw"]
+radius = 27.1662
+
+[node name="tp_tutorial" type="Area2D"]
+script = ExtResource("1_ijacw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_ijacw")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

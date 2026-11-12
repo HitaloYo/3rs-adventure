@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://oe37c0s58m0q"]
+
+[ext_resource type="Script" uid="uid://dghnyqksvo0di" path="res://scripts/obj_script/garrafa_vidro_a.gd" id="1_v4xki"]
+[ext_resource type="Texture2D" uid="uid://ctcc0o5w8tlc5" path="res://sprites/spr_eco/garrafa.png" id="2_7sa87"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ydj5j"]
+size = Vector2(80, 205)
+
+[node name="garrafa_vidro_A" type="RigidBody2D"]
+script = ExtResource("1_v4xki")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("2_7sa87")
+region_enabled = true
+region_rect = Rect2(348, 216, 140, 376)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1.19209e-07, 0.250001)
+scale = Vector2(0.1, 0.1)
+shape = SubResource("RectangleShape2D_ydj5j")
+
+[node name="garrafa" type="Area2D" parent="."]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="garrafa"]
+position = Vector2(4.41074e-07, 9.53674e-07)
+scale = Vector2(0.1, 0.1)
+shape = SubResource("RectangleShape2D_ydj5j")
+
+[connection signal="body_entered" from="garrafa" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="garrafa" to="." method="_on_area_2d_body_exited"]

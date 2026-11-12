@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://lsfm51ppvwer"]
+
+[ext_resource type="Script" uid="uid://cfol4jf0qb8s8" path="res://scripts/troca_de_cena_script/tp_fora_casa.gd" id="1_08muc"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3hgpl"]
+radius = 25.0
+
+[node name="tp_fora_casa" type="Area2D"]
+script = ExtResource("1_08muc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_3hgpl")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://casa7k8x6u3h6"]
+
+[ext_resource type="Script" uid="uid://127688ixx6y0" path="res://scripts/obj_script/plastico_a.gd" id="1_oug4v"]
+[ext_resource type="Texture2D" uid="uid://cqju8aywrhs21" path="res://sprites/spr_eco/garra_lata_bateria_pacote.png" id="2_072eb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q066s"]
+size = Vector2(80, 205)
+
+[node name="plastico" type="RigidBody2D"]
+script = ExtResource("1_oug4v")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("2_072eb")
+region_enabled = true
+region_rect = Rect2(56, 28, 188, 312)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1.19209e-07, 0.250001)
+scale = Vector2(0.1, 0.1)
+shape = SubResource("RectangleShape2D_q066s")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-1.19209e-07, 0.250001)
+scale = Vector2(0.1, 0.1)
+shape = SubResource("RectangleShape2D_q066s")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

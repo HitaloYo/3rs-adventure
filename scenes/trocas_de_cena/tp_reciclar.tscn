@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://bfyx5qjq60p7j"]
+
+[ext_resource type="Script" uid="uid://yxbsqx63na6o" path="res://scripts/troca_de_cena_script/tp_recilcar.gd" id="1_v0xau"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ppl40"]
+radius = 32.0156
+
+[node name="tp_recliclar" type="Area2D"]
+script = ExtResource("1_v0xau")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_ppl40")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

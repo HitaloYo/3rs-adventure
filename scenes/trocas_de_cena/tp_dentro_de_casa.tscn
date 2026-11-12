@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://dqxv47tin6qcm"]
+
+[ext_resource type="Script" uid="uid://5s5x5jvb35pc" path="res://scripts/troca_de_cena_script/reduzir_dentro_casa.gd" id="1_0mm2y"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_27bi1"]
+
+[node name="Area2D" type="Area2D"]
+script = ExtResource("1_0mm2y")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_27bi1")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

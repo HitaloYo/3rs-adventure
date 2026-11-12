@@ -1,0 +1,49 @@
+[gd_scene load_steps=6 format=3 uid="uid://cn03ohclhfiok"]
+
+[ext_resource type="Script" uid="uid://t2wbut2o6666" path="res://placa_reutilizar.gd" id="1_0t8ys"]
+[ext_resource type="Texture2D" uid="uid://dibik8f3ujnsg" path="res://sprites/objects/objects.png" id="2_g8lw8"]
+[ext_resource type="FontFile" uid="uid://vktky00lrlu" path="res://sprites/tilesets/floors/RevMiniPixel.ttf" id="3_rxrvt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kmglh"]
+size = Vector2(29.5, 30.25)
+
+[sub_resource type="LabelSettings" id="LabelSettings_iswvd"]
+font_size = 8
+shadow_color = Color(0, 0, 0, 1)
+
+[node name="placa_reutilizar" type="Node2D"]
+script = ExtResource("1_0t8ys")
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(0, -15)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+y_sort_enabled = true
+position = Vector2(0, 7.875)
+shape = SubResource("RectangleShape2D_kmglh")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+light_mask = 2
+texture = ExtResource("2_g8lw8")
+region_enabled = true
+region_rect = Rect2(0, 0, 16, 16)
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -75.0
+offset_top = -49.0
+offset_right = -35.0
+offset_bottom = -26.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("3_rxrvt")
+theme_override_font_sizes/font_size = 0
+label_settings = SubResource("LabelSettings_iswvd")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

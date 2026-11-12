@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://cex1x7au6e5g4"]
+
+[ext_resource type="Script" uid="uid://610q1ftd1jre" path="res://scripts/obj_script/object.gd" id="1_jj4qr"]
+[ext_resource type="Texture2D" uid="uid://ctcc0o5w8tlc5" path="res://sprites/spr_eco/garrafa.png" id="1_ry1yx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ry1yx"]
+size = Vector2(140, 380)
+
+[node name="object" type="RigidBody2D"]
+script = ExtResource("1_jj4qr")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_ry1yx")
+region_enabled = true
+region_rect = Rect2(348, 216, 140, 376)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(4.41074e-07, 9.53674e-07)
+scale = Vector2(0.1, 0.1)
+shape = SubResource("RectangleShape2D_ry1yx")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(4.41074e-07, 9.53674e-07)
+scale = Vector2(0.1, 0.1)
+shape = SubResource("RectangleShape2D_ry1yx")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

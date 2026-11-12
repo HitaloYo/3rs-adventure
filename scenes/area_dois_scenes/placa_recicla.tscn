@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://cpvp281xg70ro"]
+
+[ext_resource type="Texture2D" uid="uid://dibik8f3ujnsg" path="res://sprites/objects/objects.png" id="1_3t3uh"]
+[ext_resource type="Script" uid="uid://0dbe5rbhh6yo" path="res://scenes/area_dois_scenes/area_2d.gd" id="1_udypy"]
+
+[node name="placa" type="Node2D"]
+
+[node name="Area2D" type="Area2D" parent="."]
+script = ExtResource("1_udypy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+
+[node name="Label" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_3t3uh")
+region_enabled = true
+region_rect = Rect2(0, 0, 16, 16)

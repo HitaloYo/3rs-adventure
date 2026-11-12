@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://4osqs50kld28"]
+
+[ext_resource type="Texture2D" uid="uid://dhmynytejke38" path="res://sprites/tilesets/Isometric-Houses-2.png" id="1_ayfa5"]
+
+[node name="casa_testes" type="Node2D"]
+scale = Vector2(5, 5)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(5, 5)
+texture = ExtResource("1_ayfa5")
+region_enabled = true
+region_rect = Rect2(96, 32, 32, 32)

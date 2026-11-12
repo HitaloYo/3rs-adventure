@@ -1,0 +1,43 @@
+[gd_scene load_steps=5 format=3 uid="uid://cml2diso5xqmd"]
+
+[ext_resource type="Script" uid="uid://dqx5x21x5kgq1" path="res://aviso.gd" id="1_5mrg5"]
+[ext_resource type="FontFile" uid="uid://vktky00lrlu" path="res://sprites/tilesets/floors/RevMiniPixel.ttf" id="3_tp125"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dtjge"]
+size = Vector2(29.5, 30.25)
+
+[sub_resource type="LabelSettings" id="LabelSettings_48y07"]
+font_size = 8
+shadow_color = Color(0, 0, 0, 1)
+
+[node name="aviso" type="Node2D"]
+script = ExtResource("1_5mrg5")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+y_sort_enabled = true
+position = Vector2(0, 7.875)
+shape = SubResource("RectangleShape2D_dtjge")
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 22.0
+offset_top = -21.0
+offset_right = 171.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("3_tp125")
+theme_override_font_sizes/font_size = 0
+label_settings = SubResource("LabelSettings_48y07")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
